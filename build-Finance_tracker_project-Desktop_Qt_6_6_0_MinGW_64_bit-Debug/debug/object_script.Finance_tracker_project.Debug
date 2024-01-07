@@ -1,0 +1,10 @@
+debug/finaccountwindow.o
+debug/graphwindow.o
+debug/main.o
+debug/mainwindow.o
+debug/newfinaccount.o
+debug/subgoal.o
+debug/moc_finaccountwindow.o
+debug/moc_graphwindow.o
+debug/moc_mainwindow.o
+debug/moc_newfinaccount.o

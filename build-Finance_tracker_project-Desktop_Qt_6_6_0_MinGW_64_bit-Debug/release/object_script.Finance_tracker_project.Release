@@ -1,0 +1,10 @@
+release/finaccountwindow.o
+release/graphwindow.o
+release/main.o
+release/mainwindow.o
+release/newfinaccount.o
+release/subgoal.o
+release/moc_finaccountwindow.o
+release/moc_graphwindow.o
+release/moc_mainwindow.o
+release/moc_newfinaccount.o
