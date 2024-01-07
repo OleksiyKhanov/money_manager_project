@@ -13,8 +13,7 @@ SOURCES += \
     graphwindow.cpp \
     main.cpp \
     mainwindow.cpp \
-    newfinaccount.cpp \
-    subgoal.cpp
+    newfinaccount.cpp
 
 HEADERS += \
     FinanceAccount.h \
@@ -24,8 +23,7 @@ HEADERS += \
     finaccountwindow.h \
     graphwindow.h \
     mainwindow.h \
-    newfinaccount.h \
-    subgoal.h
+    newfinaccount.h
 
 FORMS += \
     finaccountwindow.ui \

@@ -7,12 +7,9 @@
 class Transaction {
 
     QString name;
-    QString category;
     float sum;
-    QString date;
-    QString paymentMethod;
-    QString currency;
-    QString type;
+//    QString date;
+
 
 public:
     Transaction(QString name, float sum){
@@ -28,24 +25,19 @@ public:
 
     Transaction(const Transaction& other){
         this->name = other.name;
-        this->category = other.category;
         this->sum = other.sum;
-        this->date = other.date;
-        this->paymentMethod = other.paymentMethod;
-        this->currency = other.currency;
-        this->type = other.type;
-
+       // this->date = other.date;
     }
 
 
-    const QString getDate() const{
+//    const QString getDate() const{
 
-        return date;
-    }
-   Transaction& setDate(const QString &date){
-        this->date = date;
-        return *this;
-    }
+//        return date;
+//    }
+//   Transaction& setDate(const QString &date){
+//        this->date = date;
+//        return *this;
+//    }
 
     const QString getName() {
         return this->name;
@@ -63,57 +55,17 @@ public:
         return *this;
     }
 
-    const QString getCategory() const{
-        return category;
-    }
-    Transaction& setCategory(const QString &category){
-        this ->category = category;
-        return *this;
-    }
-
-    const QString getPaymentMethod() const{
-        return paymentMethod;
-    }
-    Transaction& setPaymentMethod(const QString &paymentMethod){
-        this->paymentMethod = paymentMethod;
-        return *this;
-    }
-
-    const QString getCurrency() const{
-        return currency;
-    }
-    Transaction& setCurrency(const QString &currency){
-        this->currency = currency;
-        return *this;
-    }
-
-    const QString getType() const{
-        return type;
-    }
-    Transaction& setType(const QString &type){
-        this->type = type;
-        return *this;
-    }
-
     bool operator==(const Transaction& other)const{
         return this->name == other.name &&
-                this->category == other.category &&
-                this->sum == other.sum &&
-                this->date == other.date &&
-                this->paymentMethod == other.paymentMethod &&
-                this->currency == other.currency &&
-                    this->type == other.type;
+               this->sum == other.sum;
+               // this->date == other.date &&
     }
 
 
     bool operator!=(const Transaction & other)const{
         return this->name != other.name ||
-               this->category != other.category ||
-               this->sum != other.sum ||
-               this->date != other.date ||
-               this->paymentMethod != other.paymentMethod ||
-               this->currency != other.currency ||
-               this->type != other.type;
+               this->sum != other.sum;
+          //     this->date != other.date ||
     }
 
 

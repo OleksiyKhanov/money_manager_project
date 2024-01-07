@@ -2,23 +2,13 @@
 #define GRAPH_H
 #include "FinanceAccount.h"
 
-template<typename T1, typename U1 = QString>
+template<typename T1>
  class Graph{
     T1 plus;
     T1 minus;
     T1 finalSum;
-    U1 finalGoal;
 
   public:
-
-Graph(U1 finalGoal, T1 plus, T1 minus){
- this->finalGoal = finalGoal;
- qDebug() << "Фінальна ціль: " << finalGoal;
-
- this->plus = plus;
- this->minus = minus;
- qDebug() << "Прибуток:" << plus << "Збитки: " << minus;
-}
 
     Graph(){
     }

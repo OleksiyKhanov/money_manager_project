@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Goal.h"
-#include "subgoal.h"
 #include "FinanceAccount.h"
 #include "Graph.h"
 
@@ -87,66 +86,66 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Demo
 
-    qDebug() << "Demo:";
+//    qDebug() << "Demo:";
 
 
-    qDebug() << "Late binding:";
+//    qDebug() << "Late binding:";
 
-    Goal *g = new SubGoal();
+//    Goal *g = new SubGoal();
 
-    g->print();
-
-
-    qDebug() << "Static member and static member function:";
-
-    SubGoal::printTotalCount();
-
-    SubGoal a;
-    SubGoal b;
-    SubGoal c;
-
-    SubGoal::printTotalCount();
-
-    qDebug() << "Overloaded operators:";
+//    g->print();
 
 
-    Transaction aa = Transaction("1", 1);
-    Transaction bb = Transaction("2", 2);
-    qDebug() << (aa == bb);
+//    qDebug() << "Static member and static member function:";
 
-    qDebug() << (aa != bb);
+//    SubGoal::printTotalCount();
+
+//    SubGoal a;
+//    SubGoal b;
+//    SubGoal c;
+
+//    SubGoal::printTotalCount();
+
+//    qDebug() << "Overloaded operators:";
 
 
-    FinanceAccount aaa = FinanceAccount("1", 123);
+//    Transaction aa = Transaction("1", 1);
+//    Transaction bb = Transaction("2", 2);
+//    qDebug() << (aa == bb);
 
-    aaa++;
+//    qDebug() << (aa != bb);
 
-    qDebug() << aaa;
 
-    aaa--;
+//    FinanceAccount aaa = FinanceAccount("1", 123);
 
-    qDebug() << aaa;
+//    aaa++;
 
-    QVector<Transaction> vec;
-    vec.push_back(aa);
-    vec.push_back(bb);
+//    qDebug() << aaa;
 
-    QString newName = "2";
-    double newSum = 321;
+//    aaa--;
 
-    aaa(newName, newSum, vec);
+//    qDebug() << aaa;
 
-    qDebug() << aaa;
+//    QVector<Transaction> vec;
+//    vec.push_back(aa);
+//    vec.push_back(bb);
 
-    aaa[1].print();
+//    QString newName = "2";
+//    double newSum = 321;
 
-    aaa[-1].print();
+//    aaa(newName, newSum, vec);
 
-    FinanceAccount bbb = FinanceAccount("3", 123);
+//    qDebug() << aaa;
 
-    FinanceAccount ccc = aaa + bbb;
+//    aaa[1].print();
 
-    qDebug() << ccc;
+//    aaa[-1].print();
+
+//    FinanceAccount bbb = FinanceAccount("3", 123);
+
+//    FinanceAccount ccc = aaa + bbb;
+
+//    qDebug() << ccc;
 
 
 
@@ -237,11 +236,5 @@ void MainWindow::on_pushButton_createZvit_clicked()
 {
    window3.show();
    sendListToWindow3();
-
-   Graph b(7.7, 5.1, -3.2);
-   b.print();
-
-   Graph<int> d("Дуже багато", 4 , 6);
-   Graph d1("Дірка від бубліка", 7 , 6);
 }
 

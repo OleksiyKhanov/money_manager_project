@@ -10,7 +10,6 @@ protected:
     QString name;
     float sum;
     float progress;
-    QString type;
 
 public:
 
@@ -18,7 +17,6 @@ public:
     }
     Goal(QString &name, QString &type, float sum, float progress){
         this->name = name;
-        this->type = type;
         this->sum = sum;
         this->progress = progress;
     }
@@ -26,10 +24,9 @@ public:
         this->name = other.name;
         this->sum = other.sum;
         this->progress = other.progress;
-        this->type = other.type;
 
     }
-    virtual ~Goal(){
+    ~Goal(){
         // qDebug() << "Destructing base goal";
     }
 
@@ -60,14 +57,6 @@ public:
          return *this;
     }
 
-    const QString getType() const{
-        return type;
-    }
-
-    Goal& setType(QString &name){
-        this->name = name;
-         return *this;
-    }
 
     operator float()const{
          return static_cast<float>(sum);
@@ -79,13 +68,11 @@ public:
          if (name.isEmpty())
          {
              name = "Default name";
-         }if(name.isEmpty()){
-             type = "Default type";
          }
          return *this;
     }
 
-    virtual void print() const {
+     void print() const {
         qDebug() << "Goal name: " << this->getName() << "; sum: " << this->getSum() << "; progress: " << this->getProgress();
     }
 
