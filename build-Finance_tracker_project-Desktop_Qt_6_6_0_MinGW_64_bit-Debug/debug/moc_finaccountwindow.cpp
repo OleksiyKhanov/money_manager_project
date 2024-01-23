@@ -46,9 +46,12 @@ static constexpr auto qt_meta_stringdata_CLASSFinAccountWindowENDCLASS = QtMocHe
     "sendAccData",
     "QList<FinanceAccount>&",
     "data",
+    "sendAccDataForGoal",
+    "index",
     "on_pushButton_back_clicked",
     "on_pushButton_clicked",
     "on_pushButton_saveTransaction_clicked",
+    "on_pushButton_2_clicked",
     "receiveFinanceAccountList",
     "list",
     "setIndex",
@@ -59,7 +62,7 @@ static constexpr auto qt_meta_stringdata_CLASSFinAccountWindowENDCLASS = QtMocHe
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSFinAccountWindowENDCLASS_t {
-    uint offsetsAndSizes[34];
+    uint offsetsAndSizes[40];
     char stringdata0[17];
     char stringdata1[11];
     char stringdata2[1];
@@ -67,16 +70,19 @@ struct qt_meta_stringdata_CLASSFinAccountWindowENDCLASS_t {
     char stringdata4[12];
     char stringdata5[23];
     char stringdata6[5];
-    char stringdata7[27];
-    char stringdata8[22];
-    char stringdata9[38];
-    char stringdata10[26];
-    char stringdata11[5];
-    char stringdata12[9];
-    char stringdata13[2];
-    char stringdata14[20];
-    char stringdata15[16];
-    char stringdata16[18];
+    char stringdata7[19];
+    char stringdata8[6];
+    char stringdata9[27];
+    char stringdata10[22];
+    char stringdata11[38];
+    char stringdata12[24];
+    char stringdata13[26];
+    char stringdata14[5];
+    char stringdata15[9];
+    char stringdata16[2];
+    char stringdata17[20];
+    char stringdata18[16];
+    char stringdata19[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSFinAccountWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -89,16 +95,19 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSFinAccountWindowENDCLASS_t qt_m
         QT_MOC_LITERAL(40, 11),  // "sendAccData"
         QT_MOC_LITERAL(52, 22),  // "QList<FinanceAccount>&"
         QT_MOC_LITERAL(75, 4),  // "data"
-        QT_MOC_LITERAL(80, 26),  // "on_pushButton_back_clicked"
-        QT_MOC_LITERAL(107, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(129, 37),  // "on_pushButton_saveTransaction..."
-        QT_MOC_LITERAL(167, 25),  // "receiveFinanceAccountList"
-        QT_MOC_LITERAL(193, 4),  // "list"
-        QT_MOC_LITERAL(198, 8),  // "setIndex"
-        QT_MOC_LITERAL(207, 1),  // "i"
-        QT_MOC_LITERAL(209, 19),  // "requestAccountsList"
-        QT_MOC_LITERAL(229, 15),  // "getAccountsList"
-        QT_MOC_LITERAL(245, 17)   // "updateAccountList"
+        QT_MOC_LITERAL(80, 18),  // "sendAccDataForGoal"
+        QT_MOC_LITERAL(99, 5),  // "index"
+        QT_MOC_LITERAL(105, 26),  // "on_pushButton_back_clicked"
+        QT_MOC_LITERAL(132, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(154, 37),  // "on_pushButton_saveTransaction..."
+        QT_MOC_LITERAL(192, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(216, 25),  // "receiveFinanceAccountList"
+        QT_MOC_LITERAL(242, 4),  // "list"
+        QT_MOC_LITERAL(247, 8),  // "setIndex"
+        QT_MOC_LITERAL(256, 1),  // "i"
+        QT_MOC_LITERAL(258, 19),  // "requestAccountsList"
+        QT_MOC_LITERAL(278, 15),  // "getAccountsList"
+        QT_MOC_LITERAL(294, 17)   // "updateAccountList"
     },
     "FinAccountWindow",
     "signalBack",
@@ -107,9 +116,12 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSFinAccountWindowENDCLASS_t qt_m
     "sendAccData",
     "QList<FinanceAccount>&",
     "data",
+    "sendAccDataForGoal",
+    "index",
     "on_pushButton_back_clicked",
     "on_pushButton_clicked",
     "on_pushButton_saveTransaction_clicked",
+    "on_pushButton_2_clicked",
     "receiveFinanceAccountList",
     "list",
     "setIndex",
@@ -128,39 +140,43 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFinAccountWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   80,    2, 0x06,    1 /* Public */,
-       3,    0,   81,    2, 0x06,    2 /* Public */,
-       4,    1,   82,    2, 0x06,    3 /* Public */,
+       1,    0,   92,    2, 0x06,    1 /* Public */,
+       3,    0,   93,    2, 0x06,    2 /* Public */,
+       4,    1,   94,    2, 0x06,    3 /* Public */,
+       7,    2,   97,    2, 0x06,    5 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       7,    0,   85,    2, 0x08,    5 /* Private */,
-       8,    0,   86,    2, 0x08,    6 /* Private */,
-       9,    0,   87,    2, 0x08,    7 /* Private */,
-      10,    1,   88,    2, 0x0a,    8 /* Public */,
-      12,    1,   91,    2, 0x0a,   10 /* Public */,
-      14,    0,   94,    2, 0x0a,   12 /* Public */,
-      15,    1,   95,    2, 0x0a,   13 /* Public */,
-      16,    1,   98,    2, 0x0a,   15 /* Public */,
+       9,    0,  102,    2, 0x08,    8 /* Private */,
+      10,    0,  103,    2, 0x08,    9 /* Private */,
+      11,    0,  104,    2, 0x08,   10 /* Private */,
+      12,    0,  105,    2, 0x08,   11 /* Private */,
+      13,    1,  106,    2, 0x0a,   12 /* Public */,
+      15,    1,  109,    2, 0x0a,   14 /* Public */,
+      17,    0,  112,    2, 0x0a,   16 /* Public */,
+      18,    1,  113,    2, 0x0a,   17 /* Public */,
+      19,    1,  116,    2, 0x0a,   19 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void, 0x80000000 | 5, QMetaType::Int,    6,    8,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 5,   11,
-    QMetaType::Void, QMetaType::Int,   13,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 5,   14,
+    QMetaType::Void, QMetaType::Int,   16,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void, 0x80000000 | 5,    6,
@@ -184,11 +200,17 @@ Q_CONSTINIT const QMetaObject FinAccountWindow::staticMetaObject = { {
         // method 'sendAccData'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QVector<FinanceAccount> &, std::false_type>,
+        // method 'sendAccDataForGoal'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QVector<FinanceAccount> &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_pushButton_back_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_saveTransaction_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_2_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'receiveFinanceAccountList'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -217,14 +239,16 @@ void FinAccountWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 0: _t->signalBack(); break;
         case 1: _t->reqAccData(); break;
         case 2: _t->sendAccData((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
-        case 3: _t->on_pushButton_back_clicked(); break;
-        case 4: _t->on_pushButton_clicked(); break;
-        case 5: _t->on_pushButton_saveTransaction_clicked(); break;
-        case 6: _t->receiveFinanceAccountList((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
-        case 7: _t->setIndex((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 8: _t->requestAccountsList(); break;
-        case 9: _t->getAccountsList((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
-        case 10: _t->updateAccountList((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
+        case 3: _t->sendAccDataForGoal((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 4: _t->on_pushButton_back_clicked(); break;
+        case 5: _t->on_pushButton_clicked(); break;
+        case 6: _t->on_pushButton_saveTransaction_clicked(); break;
+        case 7: _t->on_pushButton_2_clicked(); break;
+        case 8: _t->receiveFinanceAccountList((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
+        case 9: _t->setIndex((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: _t->requestAccountsList(); break;
+        case 11: _t->getAccountsList((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
+        case 12: _t->updateAccountList((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -250,6 +274,13 @@ void FinAccountWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
                 return;
             }
         }
+        {
+            using _t = void (FinAccountWindow::*)(QVector<FinanceAccount> & , int );
+            if (_t _q_method = &FinAccountWindow::sendAccDataForGoal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 3;
+                return;
+            }
+        }
     }
 }
 
@@ -272,13 +303,13 @@ int FinAccountWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 13;
     }
     return _id;
 }
@@ -300,5 +331,12 @@ void FinAccountWindow::sendAccData(QVector<FinanceAccount> & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void FinAccountWindow::sendAccDataForGoal(QVector<FinanceAccount> & _t1, int _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_WARNING_POP

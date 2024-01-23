@@ -41,6 +41,14 @@ public:
     QLabel *label_4;
     QListWidget *listWidget;
     QLabel *label_statusTransaction;
+    QGroupBox *groupBox;
+    QLabel *label_progressGoal;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label_sumGoal;
+    QPushButton *pushButton_2;
+    QLabel *label_9;
+    QLabel *label_nameGoal;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -48,7 +56,7 @@ public:
     {
         if (FinAccountWindow->objectName().isEmpty())
             FinAccountWindow->setObjectName("FinAccountWindow");
-        FinAccountWindow->resize(476, 434);
+        FinAccountWindow->resize(434, 434);
         centralwidget = new QWidget(FinAccountWindow);
         centralwidget->setObjectName("centralwidget");
         pushButton = new QPushButton(centralwidget);
@@ -65,13 +73,13 @@ public:
         label_3->setGeometry(QRect(10, 220, 111, 16));
         pushButton_back = new QPushButton(centralwidget);
         pushButton_back->setObjectName("pushButton_back");
-        pushButton_back->setGeometry(QRect(280, 340, 181, 41));
+        pushButton_back->setGeometry(QRect(220, 340, 201, 41));
         label_nameAccount = new QLabel(centralwidget);
         label_nameAccount->setObjectName("label_nameAccount");
-        label_nameAccount->setGeometry(QRect(160, 10, 181, 31));
+        label_nameAccount->setGeometry(QRect(10, 10, 181, 31));
         groupBox_newTransaction = new QGroupBox(centralwidget);
         groupBox_newTransaction->setObjectName("groupBox_newTransaction");
-        groupBox_newTransaction->setGeometry(QRect(270, 80, 201, 101));
+        groupBox_newTransaction->setGeometry(QRect(220, 160, 201, 101));
         lineEdit_nameTransaction = new QLineEdit(groupBox_newTransaction);
         lineEdit_nameTransaction->setObjectName("lineEdit_nameTransaction");
         lineEdit_nameTransaction->setGeometry(QRect(80, 10, 113, 24));
@@ -93,11 +101,35 @@ public:
         listWidget->setStyleSheet(QString::fromUtf8("border: 1px solid transparent; background-color: transparent;"));
         label_statusTransaction = new QLabel(centralwidget);
         label_statusTransaction->setObjectName("label_statusTransaction");
-        label_statusTransaction->setGeometry(QRect(270, 190, 201, 20));
+        label_statusTransaction->setGeometry(QRect(220, 270, 201, 20));
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName("groupBox");
+        groupBox->setGeometry(QRect(220, 10, 201, 121));
+        label_progressGoal = new QLabel(groupBox);
+        label_progressGoal->setObjectName("label_progressGoal");
+        label_progressGoal->setGeometry(QRect(70, 90, 121, 20));
+        label_6 = new QLabel(groupBox);
+        label_6->setObjectName("label_6");
+        label_6->setGeometry(QRect(10, 70, 81, 20));
+        label_7 = new QLabel(groupBox);
+        label_7->setObjectName("label_7");
+        label_7->setGeometry(QRect(10, 90, 61, 20));
+        label_sumGoal = new QLabel(groupBox);
+        label_sumGoal->setObjectName("label_sumGoal");
+        label_sumGoal->setGeometry(QRect(100, 70, 91, 20));
+        pushButton_2 = new QPushButton(groupBox);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(10, 10, 181, 31));
+        label_9 = new QLabel(groupBox);
+        label_9->setObjectName("label_9");
+        label_9->setGeometry(QRect(10, 50, 41, 20));
+        label_nameGoal = new QLabel(groupBox);
+        label_nameGoal->setObjectName("label_nameGoal");
+        label_nameGoal->setGeometry(QRect(50, 50, 131, 20));
         FinAccountWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FinAccountWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 476, 21));
+        menubar->setGeometry(QRect(0, 0, 434, 21));
         FinAccountWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(FinAccountWindow);
         statusbar->setObjectName("statusbar");
@@ -119,10 +151,18 @@ public:
         label_nameAccount->setText(QCoreApplication::translate("FinAccountWindow", " \320\235\320\260\320\267\320\262\320\260 \321\200\320\260\321\205\321\203\320\275\320\272\321\203 (\321\203\320\274\320\276\320\262\320\275\320\276)", nullptr));
         groupBox_newTransaction->setTitle(QString());
         lineEdit_nameTransaction->setPlaceholderText(QCoreApplication::translate("FinAccountWindow", "\320\235\320\265 \320\276\320\261\320\276\320\262'\321\217\320\267\320\272\320\276\320\262\320\276", nullptr));
-        pushButton_saveTransaction->setText(QCoreApplication::translate("FinAccountWindow", "\320\227\320\261\320\265\321\200\320\265\320\263\321\202\320\270 \321\202\321\200\320\260\320\275\320\267\320\260\320\272\321\206\321\226\321\216", nullptr));
+        pushButton_saveTransaction->setText(QCoreApplication::translate("FinAccountWindow", "\320\227\320\261\320\265\321\200\320\265\320\263\321\202\320\270 \321\202\321\200\320\260\320\275\320\267\320\260\320\272\321\206\321\226\321\216/\321\206\321\226\320\273\321\214", nullptr));
         label_2->setText(QCoreApplication::translate("FinAccountWindow", "\320\235\320\260\320\267\320\262\320\260", nullptr));
         label_4->setText(QCoreApplication::translate("FinAccountWindow", "\320\241\321\203\320\274\320\260", nullptr));
         label_statusTransaction->setText(QString());
+        groupBox->setTitle(QString());
+        label_progressGoal->setText(QString());
+        label_6->setText(QCoreApplication::translate("FinAccountWindow", "\320\246\321\226\320\273\321\214\320\276\320\262\320\260 \321\201\321\203\320\274\320\260: ", nullptr));
+        label_7->setText(QCoreApplication::translate("FinAccountWindow", "\320\237\321\200\320\276\320\263\321\200\320\265\321\201:", nullptr));
+        label_sumGoal->setText(QString());
+        pushButton_2->setText(QCoreApplication::translate("FinAccountWindow", "\320\227\320\260\320\264\320\260\321\202\320\270 \321\206\321\226\320\273\321\214", nullptr));
+        label_9->setText(QCoreApplication::translate("FinAccountWindow", "\320\246\321\226\320\273\321\214: ", nullptr));
+        label_nameGoal->setText(QString());
     } // retranslateUi
 
 };

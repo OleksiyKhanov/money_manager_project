@@ -44,15 +44,20 @@ public slots:
     // void receiveNameList(const QVector<QString> &list);
     void closeAccountWindow();
 
-    void onAccountData(QVector<FinanceAccount>& data) {
+    void onAccountData(QVector<FinanceAccount>& data, int index) {
+        qDebug() << "onAccountData";
 
+    data[index].getGoal().print();
         this->accountData = data;
 
-        for(int i = 0; i < data.size(); i++) {
-            this->accountData[i].setTransactions(data[i].getTransactions());
-        }
 
+        for(int i = 0; i < data.size(); i++) {
+            //this->accountData[i].setTransactions(data[i].getTransactions());
+            this->accountData[i].setGoalObj(data[i].getGoal());
+        }
+    accountData[index].getGoal().print();
     }
+
     void addAccountData(FinanceAccount& item) {
         qDebug() << "before push back";
         for (int i = 0; i < this->accountData.size(); i++) {
@@ -80,7 +85,7 @@ public slots:
         emit sendAccountList(this->accountData);
     }
     void sendListToWindow3(void){
-        emit sendAccountList(this->accountData);
+        emit sendAccountListToWin3(this->accountData);
     }
     void onUpdateNameList(void);
 
@@ -94,6 +99,7 @@ signals:
     void getIndex(int i);
     void tempSignal();
     void sendAccountList(QVector<FinanceAccount>& data);
+    void sendAccountListToWin3(QVector<FinanceAccount>& data);
 };
 
 

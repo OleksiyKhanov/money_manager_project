@@ -34,6 +34,7 @@ public:
     }
 
     ~FinanceAccount(){
+        if(financialGoal.getSum()!= 0) {qDebug()<< "!!!";}else{qDebug()<< "завершив існування!";}
     }
 
 
@@ -89,12 +90,46 @@ public:
         return *this;
     }
 
+
+    const Goal& getGoal(){
+        return financialGoal;
+    }
+
+    FinanceAccount& setGoal(QString name, float sum, float prog){
+        this->financialGoal.setName(name);
+        this->financialGoal.setSum(sum);
+        this->financialGoal.changeProgress(prog);
+        return *this;
+    }
+
+    FinanceAccount& copyGoal(QString name, float sum, float prog){
+        this->financialGoal.setName(name);
+        this->financialGoal.setSum(sum);
+        this->financialGoal.setProgress(prog);
+        return *this;
+    }
+
+
+    FinanceAccount& setGoalObj(const Goal& other){
+        this->financialGoal.setName(other.getName());
+        this->financialGoal.setSum(other.getSum());
+        this->financialGoal.setProgress(other.getProgress());
+        return *this;
+    }
+
+    FinanceAccount& setGoalProgress(float prog){
+        this->financialGoal.changeProgress(prog);
+        return *this;
+    }
+
+
     bool operator==(const FinanceAccount& other) const {
        return
            this->name == other.name &&
            this->totalCount == other.totalCount &&
            this->transactionList == other.transactionList &&
-           this->startSum == other.startSum;
+           this->startSum == other.startSum &&
+        this->financialGoal == other.financialGoal;
     }
 
     FinanceAccount& operator+(const FinanceAccount& other){
@@ -107,11 +142,13 @@ public:
     }
 
     FinanceAccount& operator=(const FinanceAccount& other){
+
+        qDebug() << "operator= fin";
         this-> name = other.name;
         this->totalCount = other.totalCount;
         this->transactionList = other.transactionList;
         this->startSum = other.startSum;
-        //this->financialGoal = other.financialGoal; для такого треба перегрузити "=" у самому Goal
+        this->financialGoal = other.financialGoal;
 
         return *this;
     }

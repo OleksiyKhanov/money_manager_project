@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //коннекти, з'єднують сигнали та слоти між собою
-    connect(this, &MainWindow::sendAccountList, &window3, &GraphWindow::setAccList);
+    connect(this, &MainWindow::sendAccountListToWin3, &window3, &GraphWindow::setAccList);
     //connect(&window3, &GraphWindow::getGraph, &window3, &GraphWindow::setGraph);
 
     connect(&window2, &FinAccountWindow::signalBack, this, &MainWindow::closeAccountWindow);
@@ -28,7 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(&window2, &FinAccountWindow::reqAccData, this, &MainWindow::onRequestAccountData);
     connect(this, &MainWindow::sendAccountList, &window2, &FinAccountWindow::getAccountsList);
-    connect(&window2, &FinAccountWindow::sendAccData, this, &MainWindow::onAccountData);
+    //====
+    connect(&window2, &FinAccountWindow::sendAccDataForGoal, this, &MainWindow::onAccountData);
 
     // connect(&window1, &newFinAccount::reqAccountData, this, &MainWindow::onRequestAccountData);
     // connect(this, &MainWindow::sendAccountList, &window1, &newFinAccount::receiveAccountData);
@@ -222,6 +223,8 @@ void MainWindow::on_comboBox_2_activated(int index)
     emit tempSignal();
     hide();
     window2.show();
+    qDebug()<< "start window2! ";
+    accountData[0].getGoal().print();
 
 }
 
@@ -237,4 +240,6 @@ void MainWindow::on_pushButton_createZvit_clicked()
    window3.show();
    sendListToWindow3();
 }
+
+
 

@@ -8,12 +8,35 @@ FinAccountWindow::FinAccountWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->groupBox_newTransaction->hide();
+
+
 }
 
 FinAccountWindow::~FinAccountWindow()
 {
     delete ui;
 }
+
+void FinAccountWindow::getAccountsList(QVector<FinanceAccount>& data)
+{
+    this->list = data;
+
+    for (int i = 0; i < data.size(); i++) {
+        //this->list[i].setTransactions(data[i].getTransactions());
+        this->list[i].copyGoal(data[i].getGoal().getName(), data[i].getGoal().getSum(), data[i].getGoal().getProgress());
+
+    }
+    // qDebug() << index;
+    data[this->index].getGoal().print();
+    list[this->index].getGoal().print();
+
+    if(list[index].getGoal().getSum()!= 0){
+        ui->label_nameGoal->setText(list[index].getGoal().getName());
+        ui->label_sumGoal->setText(QString::number(list[index].getGoal().getSum()));
+        ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
+    }
+}
+
 void FinAccountWindow::updateHistory() {
 
     ui->label_nameAccount->setText(this->list[this->index].getName());
@@ -25,6 +48,7 @@ void FinAccountWindow::updateHistory() {
         if(tr.getSum() > 0)ui->listWidget->addItem(tr.getName() + "  :  +" + QString::number(tr.getSum()));
         else ui->listWidget->addItem(tr.getName() + "  :  " + QString::number(tr.getSum()));
     }
+
 }
 
 void FinAccountWindow::on_pushButton_back_clicked()
@@ -32,6 +56,9 @@ void FinAccountWindow::on_pushButton_back_clicked()
 
     /*слот кнопки "повернутись у головне меню", відсилає сигланл у слот mainWindow завдяки якому
      * закривається саме вікно рахунку, а не уся программа*/
+    ui->label_nameGoal->setText("");
+    ui->label_sumGoal->setText("");
+    ui->label_progressGoal->setText("");
 
   emit signalBack();
 }
@@ -39,12 +66,17 @@ void FinAccountWindow::on_pushButton_back_clicked()
 void FinAccountWindow::setIndex(int i){
     ui->listWidget->clear();
     this->index = i;
+    if (this->index != 0) qDebug() << "index marker !!!";
+
 
 }
 void FinAccountWindow::receiveFinanceAccountList(QVector<FinanceAccount> &list)
 {
     ui->label_nameAccount->setText(list[this->index].getName());
     ui->label_totalCount->setText( QString::number ( list[this->index].getTotalCount(), 'f', 1));
+
+
+
 
 }
 
@@ -54,7 +86,7 @@ void FinAccountWindow::on_pushButton_clicked()
   ui->lineEdit_sumTransaction->setText("");
 
   ui->groupBox_newTransaction->show();
-
+  statusGroupBox = 1;
 }
 
 
@@ -62,27 +94,75 @@ void FinAccountWindow::on_pushButton_clicked()
 
 void FinAccountWindow::on_pushButton_saveTransaction_clicked()
 {
-  float check = ui->lineEdit_sumTransaction->text().toFloat();
+  if(statusGroupBox == 1){
+        float check = ui->lineEdit_sumTransaction->text().toFloat();
 
-    if(check!= 0){
-        Transaction newTr = Transaction(ui->lineEdit_nameTransaction->text(), ui->lineEdit_sumTransaction->text().toFloat());
-        this->list[this->index].addTransaction(newTr);
+        if(check!= 0){
+            Transaction newTr = Transaction(ui->lineEdit_nameTransaction->text(), ui->lineEdit_sumTransaction->text().toFloat());
+            this->list[this->index].addTransaction(newTr);
 
-        this->list[this->index].setTotalCount(newTr.getSum());
+            this->list[this->index].setTotalCount(newTr.getSum());
 
-        if(newTr.getSum()> 0)ui->listWidget->addItem(newTr.getName() + "  :  +" + QString::number(newTr.getSum()));
-        else ui->listWidget->addItem(newTr.getName() + "  :  " + QString::number(newTr.getSum()));
-        ui->label_totalCount->setText(QString::number(this->list[this->index].getTotalCount(), 'f', 1));
-        emit sendAccData(this->list);
+            if(newTr.getSum()> 0)ui->listWidget->addItem(newTr.getName() + "  :  +" + QString::number(newTr.getSum()));
+            else ui->listWidget->addItem(newTr.getName() + "  :  " + QString::number(newTr.getSum()));
+            ui->label_totalCount->setText(QString::number(this->list[this->index].getTotalCount(), 'f', 1));
+            emit sendAccData(this->list);
 
-        ui->groupBox_newTransaction->hide();
-        ui->lineEdit_nameTransaction->setText("");
-        ui->lineEdit_sumTransaction->setText("");
+            ui->groupBox_newTransaction->hide();
+            ui->lineEdit_nameTransaction->setText("");
+            ui->lineEdit_sumTransaction->setText("");
 
-         ui->label_statusTransaction->setText("");
-    }else
-        ui->label_statusTransaction->setText("Дані введено не коректно!");
+            ui->label_statusTransaction->setText("");
+            statusGroupBox = 0;
+
+            updateGoal();
+        }else
+            ui->label_statusTransaction->setText("Дані введено не коректно!");
+  }if(statusGroupBox == 2){
+        float check = ui->lineEdit_sumTransaction->text().toFloat();
+
+        if(check!= 0 && !ui->lineEdit_nameTransaction->text().isEmpty()){
+            list[index].setGoal(ui->lineEdit_nameTransaction->text(), ui->lineEdit_sumTransaction->text().toFloat(), list[index].getTotalCount());
+//            thisGoal.setName(ui->lineEdit_nameTransaction->text());
+//            thisGoal.setSum(ui->lineEdit_sumTransaction->text().toFloat());
+//            thisGoal.changeProgress(list[index].getTotalCount());
+
+            ui->label_nameGoal->setText(list[index].getGoal().getName());
+            ui->label_sumGoal->setText(QString::number(list[index].getGoal().getSum()));
+            ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
+
+            ui->groupBox_newTransaction->hide();
+            ui->lineEdit_nameTransaction->setText("");
+            ui->lineEdit_sumTransaction->setText("");
+
+            ui->label_statusTransaction->setText("");
+            statusGroupBox = 0;
+
+        }else
+            ui->label_statusTransaction->setText("Дані введено не коректно!");
+  }
 
 
 }
+
+
+void FinAccountWindow::on_pushButton_2_clicked()
+{
+
+    ui->lineEdit_nameTransaction->setText("");
+    ui->lineEdit_sumTransaction->setText("");
+
+    ui->groupBox_newTransaction->show();
+    statusGroupBox = 2;
+
+}
+
+void FinAccountWindow::updateGoal(){
+    if(list[index].getGoal().getSum() != 0){
+        list[index].setGoalProgress(list[index].getTotalCount());
+        ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
+
+    }
+}
+
 
