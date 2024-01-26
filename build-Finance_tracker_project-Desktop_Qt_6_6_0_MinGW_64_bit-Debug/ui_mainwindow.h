@@ -10,11 +10,9 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -29,9 +27,8 @@ public:
     QPushButton *pushButton_newTransaction;
     QPushButton *pushButton_createZvit;
     QComboBox *comboBox_2;
-    QMenuBar *menubar;
-    QMenu *menu;
     QStatusBar *statusbar;
+    QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -50,17 +47,13 @@ public:
         comboBox_2->setObjectName("comboBox_2");
         comboBox_2->setGeometry(QRect(210, 90, 221, 41));
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 703, 21));
-        menu = new QMenu(menubar);
-        menu->setObjectName("menu");
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
-
-        menubar->addAction(menu->menuAction());
+        menubar = new QMenuBar(MainWindow);
+        menubar->setObjectName("menubar");
+        menubar->setGeometry(QRect(0, 0, 703, 21));
+        MainWindow->setMenuBar(menubar);
 
         retranslateUi(MainWindow);
 
@@ -73,7 +66,6 @@ public:
         pushButton_newTransaction->setText(QCoreApplication::translate("MainWindow", "\320\241\321\202\320\262\320\276\321\200\320\270\321\202\320\270 \320\275\320\276\320\262\320\270\320\271 \321\200\320\260\321\205\321\203\320\275\320\276\320\272", nullptr));
         pushButton_createZvit->setText(QCoreApplication::translate("MainWindow", "\320\241\321\202\320\262\320\276\321\200\320\270\321\202\320\270 \320\267\320\262\321\226\321\202", nullptr));
         comboBox_2->setPlaceholderText(QCoreApplication::translate("MainWindow", "\320\236\320\261\321\200\320\260\321\202\320\270 \321\226\321\201\320\275\321\203\321\216\321\207\320\270\320\271 \321\200\320\260\321\205\321\203\320\275\320\276\320\272", nullptr));
-        menu->setTitle(QCoreApplication::translate("MainWindow", " \320\235\320\260\320\273\320\260\321\210\321\202\321\203\320\262\320\260\320\275\320\275\321\217", nullptr));
     } // retranslateUi
 
 };

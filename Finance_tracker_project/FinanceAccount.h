@@ -25,7 +25,7 @@ public:
         this->totalCount = other.totalCount;
         this->name = other.name;
         this->startSum = other.startSum;
-
+        this->financialGoal = other.financialGoal;
         this ->transactionList = other.transactionList;
     }
 
@@ -101,14 +101,6 @@ public:
         this->financialGoal.changeProgress(prog);
         return *this;
     }
-
-    FinanceAccount& copyGoal(QString name, float sum, float prog){
-        this->financialGoal.setName(name);
-        this->financialGoal.setSum(sum);
-        this->financialGoal.setProgress(prog);
-        return *this;
-    }
-
 
     FinanceAccount& setGoalObj(const Goal& other){
         this->financialGoal.setName(other.getName());

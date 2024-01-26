@@ -73,7 +73,7 @@ public:
         label_3->setGeometry(QRect(10, 220, 111, 16));
         pushButton_back = new QPushButton(centralwidget);
         pushButton_back->setObjectName("pushButton_back");
-        pushButton_back->setGeometry(QRect(220, 340, 201, 41));
+        pushButton_back->setGeometry(QRect(220, 350, 201, 41));
         label_nameAccount = new QLabel(centralwidget);
         label_nameAccount->setObjectName("label_nameAccount");
         label_nameAccount->setGeometry(QRect(10, 10, 181, 31));

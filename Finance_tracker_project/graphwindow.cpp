@@ -6,7 +6,7 @@ GraphWindow::GraphWindow(QWidget *parent) :
     ui(new Ui::GraphWindow)
 {
     ui->setupUi(this);
-
+    this->setWindowTitle("Звіт");
     connect(this, &GraphWindow::getGraph, this, &GraphWindow::setGraph);
 }
 

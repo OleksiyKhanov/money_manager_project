@@ -16,7 +16,6 @@ class FinAccountWindow : public QMainWindow
 public:
     int index = 0;
     int statusGroupBox = 0;
-   // Goal thisGoal;
 
     QVector<FinanceAccount> list;
     explicit FinAccountWindow(QWidget *parent = nullptr);

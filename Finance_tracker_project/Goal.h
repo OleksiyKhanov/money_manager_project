@@ -71,7 +71,6 @@ Goal& setProgress(const float total){
          this->sum = other.sum;
          this->progress = other.progress;
 
-         qDebug() << " operator= goal";
          return *this;
     }
 

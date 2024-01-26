@@ -45,16 +45,12 @@ public slots:
     void closeAccountWindow();
 
     void onAccountData(QVector<FinanceAccount>& data, int index) {
-        qDebug() << "onAccountData";
+        qDebug() << "повернення !!!";
 
     data[index].getGoal().print();
         this->accountData = data;
 
 
-        for(int i = 0; i < data.size(); i++) {
-            //this->accountData[i].setTransactions(data[i].getTransactions());
-            this->accountData[i].setGoalObj(data[i].getGoal());
-        }
     accountData[index].getGoal().print();
     }
 

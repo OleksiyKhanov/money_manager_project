@@ -9,6 +9,7 @@ newFinAccount::newFinAccount(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("Створення нового рахунку");
 }
 
 newFinAccount::~newFinAccount()

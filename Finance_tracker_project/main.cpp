@@ -16,3 +16,12 @@ int main(int argc, char *argv[])
 // це необхідно робити паралельно з отриманням вектору аккаунтів, а на той
 // момент я не міг цього зробити, бо ця функція була прописана у хеддері,
 // звідки я не мав доступу до інтерфейсу, тому я переніс відповідний слот у файл срр
+
+
+// Goal thisGoal;
+//            thisGoal.setName(ui->lineEdit_nameTransaction->text());
+//            thisGoal.setSum(ui->lineEdit_sumTransaction->text().toFloat());
+//            thisGoal.changeProgress(list[index].getTotalCount());
+
+// треба інкапсулювати публічні змінні у фінаккаунтвіндоу
+// повидаляти виводи у консоль

@@ -34,31 +34,31 @@ public:
     {
         if (GraphWindow->objectName().isEmpty())
             GraphWindow->setObjectName("GraphWindow");
-        GraphWindow->resize(417, 321);
+        GraphWindow->resize(271, 378);
         label = new QLabel(GraphWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(10, 20, 111, 21));
+        label->setGeometry(QRect(10, 60, 111, 21));
         label_finalSum = new QLabel(GraphWindow);
         label_finalSum->setObjectName("label_finalSum");
-        label_finalSum->setGeometry(QRect(120, 20, 111, 21));
+        label_finalSum->setGeometry(QRect(120, 60, 111, 21));
         comboBox_choseFinAcc = new QComboBox(GraphWindow);
         comboBox_choseFinAcc->setObjectName("comboBox_choseFinAcc");
-        comboBox_choseFinAcc->setGeometry(QRect(250, 10, 151, 31));
+        comboBox_choseFinAcc->setGeometry(QRect(10, 10, 151, 31));
         label_finalPlus = new QLabel(GraphWindow);
         label_finalPlus->setObjectName("label_finalPlus");
-        label_finalPlus->setGeometry(QRect(140, 60, 111, 21));
+        label_finalPlus->setGeometry(QRect(140, 100, 111, 21));
         label_2 = new QLabel(GraphWindow);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(10, 60, 121, 21));
+        label_2->setGeometry(QRect(10, 100, 121, 21));
         label_3 = new QLabel(GraphWindow);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(10, 100, 111, 21));
+        label_3->setGeometry(QRect(10, 140, 111, 21));
         label_finalMinus = new QLabel(GraphWindow);
         label_finalMinus->setObjectName("label_finalMinus");
-        label_finalMinus->setGeometry(QRect(120, 100, 121, 21));
+        label_finalMinus->setGeometry(QRect(120, 140, 121, 21));
         listWidget_transactions = new QListWidget(GraphWindow);
         listWidget_transactions->setObjectName("listWidget_transactions");
-        listWidget_transactions->setGeometry(QRect(10, 140, 201, 171));
+        listWidget_transactions->setGeometry(QRect(10, 180, 201, 171));
         listWidget_transactions->setStyleSheet(QString::fromUtf8("border: 1px solid transparent; background-color: transparent;"));
 
         retranslateUi(GraphWindow);

@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
+    this->setWindowTitle("Головне меню");
 
     //коннекти, з'єднують сигнали та слоти між собою
     connect(this, &MainWindow::sendAccountListToWin3, &window3, &GraphWindow::setAccList);
@@ -55,7 +56,23 @@ MainWindow::MainWindow(QWidget *parent)
 
             FinanceAccount acc = *(new FinanceAccount(fields[0], fields[1].toDouble()));
 
+            QStringList gLine = fields[fields.size()-1].split(":");
+            if(gLine[1] != "00")
+            {
+                float sum = gLine[1].toDouble();
+                float prog = fields[1].toFloat();
+                qDebug() << sum << "Sum!!!";
+                qDebug() << prog << "Prog!!!";
+
+                acc.setGoal(gLine[0], gLine[1].toFloat(), fields[1].toFloat());
+
+               qDebug() << gLine[0] << gLine[1]<< fields[1]<< "reading!";
+                qDebug() << gLine[0] << gLine[1].toFloat() << fields[1].toFloat() << "reading!";
+                acc.getGoal().print();
+            }
+
             this->accountData.push_back(acc);
+
 
             for (int i = 2; i < fields.size() - 1; i++) {
 
@@ -149,8 +166,8 @@ MainWindow::MainWindow(QWidget *parent)
 //    qDebug() << ccc;
 
 
-
 }
+
 MainWindow::~MainWindow()
 {
 
@@ -179,7 +196,9 @@ MainWindow::~MainWindow()
                 transactions += outputString;
             }
 
-            out << this->accountData[i].getName() << "; " << this->accountData[i].getTotalCount() << "; " << transactions << "\n";
+            out << this->accountData[i].getName() << "; " << this->accountData[i].getTotalCount() << "; " << transactions;
+            if(accountData[i].getGoal().getSum() != 0) out << accountData[i].getGoal().getName()<< ":" <<accountData[i].getGoal().getSum() << "\n";
+        else out << "00" << ":" << "00" << "\n";
         }
 
         file.close();
