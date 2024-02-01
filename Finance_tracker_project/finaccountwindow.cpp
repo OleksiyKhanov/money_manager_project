@@ -31,12 +31,12 @@ void FinAccountWindow::getAccountsList(QVector<FinanceAccount>& data)
         ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
     }
 
-    this->setWindowTitle(list[index].getName());
+    this->setWindowTitle("Рахунок – " + list[index].getName());
 }
 
 void FinAccountWindow::updateHistory() {
 
-    ui->label_nameAccount->setText(this->list[this->index].getName());
+    //ui->label_nameAccount->setText(this->list[this->index].getName());
     ui->label_totalCount->setText(QString::number(this->list[this->index].getTotalCount(), 'f', 1));
 
     for (int j = 0; j < this->list[this->index].getTransactions().size(); j++) {
@@ -71,7 +71,7 @@ void FinAccountWindow::setIndex(int i){
 }
 void FinAccountWindow::receiveFinanceAccountList(QVector<FinanceAccount> &list)
 {
-    ui->label_nameAccount->setText(list[this->index].getName());
+    //ui->label_nameAccount->setText(list[this->index].getName());
     ui->label_totalCount->setText( QString::number ( list[this->index].getTotalCount(), 'f', 1));
 
 
@@ -86,7 +86,9 @@ void FinAccountWindow::on_pushButton_clicked()
 
   ui->groupBox_newTransaction->show();
   ui->pushButton_saveTransaction->setText("Зберегти транзакцію");
-  ui->lineEdit_nameTransaction->setPlaceholderText("Не обов'язково");
+  ui->lineEdit_nameTransaction->setPlaceholderText("Назва (не обов'язково)");
+  ui->lineEdit_sumTransaction ->setPlaceholderText("Сума транзакції");
+
   statusGroupBox = 1;
 }
 
@@ -98,7 +100,8 @@ void FinAccountWindow::on_pushButton_2_clicked()
 
   ui->groupBox_newTransaction->show();
   ui->pushButton_saveTransaction->setText("Зберегти ціль");
-  ui->lineEdit_nameTransaction->setPlaceholderText("Обов'язково");
+  ui->lineEdit_nameTransaction->setPlaceholderText("Назва");
+  ui->lineEdit_sumTransaction ->setPlaceholderText("Цільова сума");
 
   statusGroupBox = 2;
 

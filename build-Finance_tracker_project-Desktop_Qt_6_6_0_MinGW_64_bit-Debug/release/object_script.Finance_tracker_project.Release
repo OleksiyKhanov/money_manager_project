@@ -3,7 +3,7 @@ release/graphwindow.o
 release/main.o
 release/mainwindow.o
 release/newfinaccount.o
-release/subgoal.o
+release/qrc_resources.o
 release/moc_finaccountwindow.o
 release/moc_graphwindow.o
 release/moc_mainwindow.o

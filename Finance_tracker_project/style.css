@@ -1,0 +1,70 @@
+QWidget{
+background-color: #AFB3B7;
+color: #2b2a2b;
+font-size:9pt;
+font-weight:540;
+/*font-family: 'Rubik Light';*/
+}
+
+QPushButton{
+background-color: #2D4A53;
+
+border: 2px 1px 1px 2px;
+border-style: solid solid solid solid;
+border-color: #69818D #132E35 #132E35 #69818D;
+
+border-radius: 8px;
+color: #D4D7DB;
+
+}
+
+
+QComboBox{
+background-color: #2D4A53;
+color: #D4DBE2;
+
+border: 2px 2px 2px 2px;
+border-style: solid solid solid solid;
+border-color: #69818D #132E35 #132E35 #69818D;
+
+border-radius: 8px;
+}
+
+QComboBox:hover{
+background-color: #4b6670;
+}
+
+QPushButton:hover{
+background-color: #4b6670;
+}
+
+QLineEdit{
+border-width: 1px 1px 1px 1px;
+  border-style: solid solid solid solid;
+  border-color: #AFB3B7 #AFB3B7 #183B49 #AFB3B7;
+  color: #2b2a2b;
+}
+
+/*QLabel#label_nameAccount{
+font-size:11pt;
+font-weight:700;
+}*/
+
+QLabel{
+color: #2b2a2b;
+}
+
+QLabel#label_totalCount{
+font-size:11pt;
+font-weight:700;
+}
+
+QLabel#label_zagRahunok{
+border-width: 2px 1px 1px 1px;
+  border-style: solid solid solid solid;
+  border-color: #183B49 #AFB3B7 #AFB3B7  #AFB3B7;
+  color: #2b2a2b;
+}
+QGroupBox{
+border: 0px;
+}
