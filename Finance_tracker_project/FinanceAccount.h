@@ -34,7 +34,6 @@ public:
     }
 
     ~FinanceAccount(){
-        if(financialGoal.getSum()!= 0) {qDebug()<< "!!!";}else{qDebug()<< "завершив існування!";}
     }
 
 

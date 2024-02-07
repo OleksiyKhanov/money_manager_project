@@ -16,13 +16,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setWindowTitle("Головне меню");
 
+    connect(&window2, &FinAccountWindow::deleteAccountGet, this, &MainWindow::deleteAccountSet);
     //коннекти, з'єднують сигнали та слоти між собою
     connect(this, &MainWindow::sendAccountListToWin3, &window3, &GraphWindow::setAccList);
     //connect(&window3, &GraphWindow::getGraph, &window3, &GraphWindow::setGraph);
 
     connect(&window2, &FinAccountWindow::signalBack, this, &MainWindow::closeAccountWindow);
 
-    connect(this, &MainWindow::getIndex, &window2, &FinAccountWindow::setIndex);
+    connect(this, &MainWindow::getIndex, &window2, &FinAccountWindow::setIndexToOpen);
 
     // connect(&window1, &newFinAccount::accountData, this, &MainWindow::onAccountData);
     connect(&window1, &newFinAccount::sendToAddAccountData, this, &MainWindow::addAccountData);
@@ -30,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&window2, &FinAccountWindow::reqAccData, this, &MainWindow::onRequestAccountData);
     connect(this, &MainWindow::sendAccountList, &window2, &FinAccountWindow::getAccountsList);
     //====
-    connect(&window2, &FinAccountWindow::sendAccDataForGoal, this, &MainWindow::onAccountData);
+    connect(&window2, &FinAccountWindow::sendAccData, this, &MainWindow::onAccountData);
 
     // connect(&window1, &newFinAccount::reqAccountData, this, &MainWindow::onRequestAccountData);
     // connect(this, &MainWindow::sendAccountList, &window1, &newFinAccount::receiveAccountData);
@@ -61,14 +62,8 @@ MainWindow::MainWindow(QWidget *parent)
             {
                 float sum = gLine[1].toDouble();
                 float prog = fields[1].toFloat();
-                qDebug() << sum << "Sum!!!";
-                qDebug() << prog << "Prog!!!";
 
                 acc.setGoal(gLine[0], gLine[1].toFloat(), fields[1].toFloat());
-
-               qDebug() << gLine[0] << gLine[1]<< fields[1]<< "reading!";
-                qDebug() << gLine[0] << gLine[1].toFloat() << fields[1].toFloat() << "reading!";
-                acc.getGoal().print();
             }
 
             this->accountData.push_back(acc);
@@ -86,8 +81,6 @@ MainWindow::MainWindow(QWidget *parent)
 
             c+=1;
         }
-
-        QStringList namesList;
 
         for (int i = 0; i < this->accountData.size(); i++) {
             namesList.push_back(this->accountData[i].getName());
@@ -215,10 +208,9 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::onUpdateNameList() {
-    QStringList namesList;
+        namesList.clear();
 
     for (int i = 0; i < this->accountData.size(); i++) {
-        // this->accountData[i].print();
         namesList.push_back(this->accountData[i].getName());
     }
 
@@ -237,14 +229,10 @@ void MainWindow::on_pushButton_newTransaction_clicked()
 
 void MainWindow::on_comboBox_2_activated(int index)
 {
-
     emit getIndex(index);
     emit tempSignal();
     hide();
     window2.show();
-    qDebug()<< "start window2! ";
-    accountData[0].getGoal().print();
-
 }
 
 void MainWindow::closeAccountWindow(){
@@ -258,6 +246,14 @@ void MainWindow::on_pushButton_createZvit_clicked()
 {
    window3.show();
    sendListToWindow3();
+}
+
+void MainWindow::deleteAccountSet(int index){
+
+   namesList.erase(namesList.begin() + index);
+   ui->comboBox_2->clear();
+   ui->comboBox_2->addItems(namesList);
+
 }
 
 

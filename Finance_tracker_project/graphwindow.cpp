@@ -54,7 +54,6 @@ void GraphWindow::on_comboBox_choseFinAcc_activated(int index)
 //      a.setMinus(tempMinus);
 //      a.setFinaSum(tempFinal);
       Graph<float> a(tempFinal,tempPlus, tempMinus);
-      a.print();
 
     emit getGraph(a);
 }

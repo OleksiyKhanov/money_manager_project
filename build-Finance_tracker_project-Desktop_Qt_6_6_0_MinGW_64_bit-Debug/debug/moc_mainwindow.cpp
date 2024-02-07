@@ -52,6 +52,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_comboBox_2_activated",
     "index",
     "on_pushButton_createZvit_clicked",
+    "deleteAccountSet",
     "closeAccountWindow",
     "onAccountData",
     "addAccountData",
@@ -63,7 +64,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[42];
+    uint offsetsAndSizes[44];
     char stringdata0[11];
     char stringdata1[9];
     char stringdata2[1];
@@ -77,14 +78,15 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata10[24];
     char stringdata11[6];
     char stringdata12[33];
-    char stringdata13[19];
-    char stringdata14[14];
-    char stringdata15[15];
-    char stringdata16[16];
-    char stringdata17[5];
-    char stringdata18[21];
-    char stringdata19[18];
-    char stringdata20[17];
+    char stringdata13[17];
+    char stringdata14[19];
+    char stringdata15[14];
+    char stringdata16[15];
+    char stringdata17[16];
+    char stringdata18[5];
+    char stringdata19[21];
+    char stringdata20[18];
+    char stringdata21[17];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -103,14 +105,15 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(137, 23),  // "on_comboBox_2_activated"
         QT_MOC_LITERAL(161, 5),  // "index"
         QT_MOC_LITERAL(167, 32),  // "on_pushButton_createZvit_clicked"
-        QT_MOC_LITERAL(200, 18),  // "closeAccountWindow"
-        QT_MOC_LITERAL(219, 13),  // "onAccountData"
-        QT_MOC_LITERAL(233, 14),  // "addAccountData"
-        QT_MOC_LITERAL(248, 15),  // "FinanceAccount&"
-        QT_MOC_LITERAL(264, 4),  // "item"
-        QT_MOC_LITERAL(269, 20),  // "onRequestAccountData"
-        QT_MOC_LITERAL(290, 17),  // "sendListToWindow3"
-        QT_MOC_LITERAL(308, 16)   // "onUpdateNameList"
+        QT_MOC_LITERAL(200, 16),  // "deleteAccountSet"
+        QT_MOC_LITERAL(217, 18),  // "closeAccountWindow"
+        QT_MOC_LITERAL(236, 13),  // "onAccountData"
+        QT_MOC_LITERAL(250, 14),  // "addAccountData"
+        QT_MOC_LITERAL(265, 15),  // "FinanceAccount&"
+        QT_MOC_LITERAL(281, 4),  // "item"
+        QT_MOC_LITERAL(286, 20),  // "onRequestAccountData"
+        QT_MOC_LITERAL(307, 17),  // "sendListToWindow3"
+        QT_MOC_LITERAL(325, 16)   // "onUpdateNameList"
     },
     "MainWindow",
     "getIndex",
@@ -125,6 +128,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_comboBox_2_activated",
     "index",
     "on_pushButton_createZvit_clicked",
+    "deleteAccountSet",
     "closeAccountWindow",
     "onAccountData",
     "addAccountData",
@@ -144,7 +148,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -152,21 +156,22 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   92,    2, 0x06,    1 /* Public */,
-       4,    0,   95,    2, 0x06,    3 /* Public */,
-       5,    1,   96,    2, 0x06,    4 /* Public */,
-       8,    1,   99,    2, 0x06,    6 /* Public */,
+       1,    1,   98,    2, 0x06,    1 /* Public */,
+       4,    0,  101,    2, 0x06,    3 /* Public */,
+       5,    1,  102,    2, 0x06,    4 /* Public */,
+       8,    1,  105,    2, 0x06,    6 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,  102,    2, 0x08,    8 /* Private */,
-      10,    1,  103,    2, 0x08,    9 /* Private */,
-      12,    0,  106,    2, 0x08,   11 /* Private */,
-      13,    0,  107,    2, 0x0a,   12 /* Public */,
-      14,    2,  108,    2, 0x0a,   13 /* Public */,
-      15,    1,  113,    2, 0x0a,   16 /* Public */,
-      18,    0,  116,    2, 0x0a,   18 /* Public */,
-      19,    0,  117,    2, 0x0a,   19 /* Public */,
-      20,    0,  118,    2, 0x0a,   20 /* Public */,
+       9,    0,  108,    2, 0x08,    8 /* Private */,
+      10,    1,  109,    2, 0x08,    9 /* Private */,
+      12,    0,  112,    2, 0x08,   11 /* Private */,
+      13,    1,  113,    2, 0x0a,   12 /* Public */,
+      14,    0,  116,    2, 0x0a,   14 /* Public */,
+      15,    2,  117,    2, 0x0a,   15 /* Public */,
+      16,    1,  122,    2, 0x0a,   18 /* Public */,
+      19,    0,  125,    2, 0x0a,   20 /* Public */,
+      20,    0,  126,    2, 0x0a,   21 /* Public */,
+      21,    0,  127,    2, 0x0a,   22 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -178,9 +183,10 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   11,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   11,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 6, QMetaType::Int,    7,   11,
-    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, 0x80000000 | 17,   18,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -215,6 +221,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_pushButton_createZvit_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'deleteAccountSet'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'closeAccountWindow'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onAccountData'
@@ -247,12 +256,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->on_pushButton_newTransaction_clicked(); break;
         case 5: _t->on_comboBox_2_activated((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 6: _t->on_pushButton_createZvit_clicked(); break;
-        case 7: _t->closeAccountWindow(); break;
-        case 8: _t->onAccountData((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 9: _t->addAccountData((*reinterpret_cast< std::add_pointer_t<FinanceAccount&>>(_a[1]))); break;
-        case 10: _t->onRequestAccountData(); break;
-        case 11: _t->sendListToWindow3(); break;
-        case 12: _t->onUpdateNameList(); break;
+        case 7: _t->deleteAccountSet((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 8: _t->closeAccountWindow(); break;
+        case 9: _t->onAccountData((*reinterpret_cast< std::add_pointer_t<QList<FinanceAccount>&>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 10: _t->addAccountData((*reinterpret_cast< std::add_pointer_t<FinanceAccount&>>(_a[1]))); break;
+        case 11: _t->onRequestAccountData(); break;
+        case 12: _t->sendListToWindow3(); break;
+        case 13: _t->onUpdateNameList(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -307,13 +317,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }

@@ -46,6 +46,7 @@ public:
     QPushButton *pushButton_2;
     QLabel *label_9;
     QLabel *label_nameGoal;
+    QPushButton *pushButton_deleteAccount;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -72,7 +73,7 @@ public:
         label_3->setGeometry(QRect(40, 179, 121, 16));
         pushButton_back = new QPushButton(centralwidget);
         pushButton_back->setObjectName("pushButton_back");
-        pushButton_back->setGeometry(QRect(30, 360, 371, 41));
+        pushButton_back->setGeometry(QRect(170, 360, 231, 41));
         groupBox_newTransaction = new QGroupBox(centralwidget);
         groupBox_newTransaction->setObjectName("groupBox_newTransaction");
         groupBox_newTransaction->setGeometry(QRect(220, 150, 201, 131));
@@ -116,6 +117,10 @@ public:
         label_nameGoal = new QLabel(groupBox);
         label_nameGoal->setObjectName("label_nameGoal");
         label_nameGoal->setGeometry(QRect(100, 50, 81, 20));
+        pushButton_deleteAccount = new QPushButton(centralwidget);
+        pushButton_deleteAccount->setObjectName("pushButton_deleteAccount");
+        pushButton_deleteAccount->setGeometry(QRect(30, 360, 131, 41));
+        pushButton_deleteAccount->setStyleSheet(QString::fromUtf8(""));
         FinAccountWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(FinAccountWindow);
         menubar->setObjectName("menubar");
@@ -150,6 +155,7 @@ public:
         pushButton_2->setText(QCoreApplication::translate("FinAccountWindow", "\320\227\320\260\320\264\320\260\321\202\320\270 \321\206\321\226\320\273\321\214", nullptr));
         label_9->setText(QCoreApplication::translate("FinAccountWindow", "<html><head/><body><p>\320\246\321\226\320\273\321\214: </p></body></html>", nullptr));
         label_nameGoal->setText(QString());
+        pushButton_deleteAccount->setText(QCoreApplication::translate("FinAccountWindow", "\320\222\320\270\320\264\320\260\320\273\320\270\321\202\320\270 \321\200\320\260\321\205\321\203\320\275\320\276\320\272", nullptr));
     } // retranslateUi
 
 };

@@ -29,6 +29,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+     QStringList namesList;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QVector<FinanceAccount> accountData;
@@ -41,23 +42,17 @@ private slots:
     void on_pushButton_createZvit_clicked();
 
 public slots:
+    void deleteAccountSet(int index);
     // void receiveNameList(const QVector<QString> &list);
     void closeAccountWindow();
 
     void onAccountData(QVector<FinanceAccount>& data, int index) {
-        qDebug() << "повернення !!!";
-
-    data[index].getGoal().print();
         this->accountData = data;
-
-
-    accountData[index].getGoal().print();
+    //this->accountData.assign(data.begin(), data.end());
     }
 
     void addAccountData(FinanceAccount& item) {
-        qDebug() << "before push back";
         for (int i = 0; i < this->accountData.size(); i++) {
-            this->accountData[i].print();
 
             for (int j = 0; j < this->accountData[i].getTransactions().size(); j++) {
                 this->accountData[i].getTransactions()[j].print();
@@ -66,7 +61,6 @@ public slots:
 
         this->accountData.push_back(item);
 
-        qDebug() << "after push back";
         for (int i = 0; i < this->accountData.size(); i++) {
             this->accountData[i].print();
 

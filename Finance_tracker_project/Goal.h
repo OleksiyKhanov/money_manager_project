@@ -27,12 +27,10 @@ public:
 
     }
     ~Goal(){
-        // qDebug() << "Destructing base goal";
     }
 
 Goal& changeProgress(const float total){
 
-        qDebug() << "changeProgress: "<<this->sum << total;
         float temp = this->sum / 100;
 
         this->progress = total/temp;

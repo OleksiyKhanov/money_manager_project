@@ -20,27 +20,24 @@ FinAccountWindow::~FinAccountWindow()
 void FinAccountWindow::getAccountsList(QVector<FinanceAccount>& data)
 {
     this->list = data;
- qDebug() << "Відправлення !!!";
+//    this->list.assign(data.begin(), data.end());
 
-    data[this->index].getGoal().print();
-    list[this->index].getGoal().print();
-
-    if(list[index].getGoal().getSum()!= 0){
-        ui->label_nameGoal->setText(list[index].getGoal().getName());
-        ui->label_sumGoal->setText(QString::number(list[index].getGoal().getSum()));
-        ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
+    if(list[getIndex()].getGoal().getSum()!= 0){
+        ui->label_nameGoal->setText(list[getIndex()].getGoal().getName());
+        ui->label_sumGoal->setText(QString::number(list[getIndex()].getGoal().getSum()));
+        ui->label_progressGoal->setText(QString::number(list[getIndex()].getGoal().getProgress(), 'f', 2) + "%");
     }
 
-    this->setWindowTitle("Рахунок – " + list[index].getName());
+    this->setWindowTitle("Рахунок – " + list[getIndex()].getName());
 }
 
 void FinAccountWindow::updateHistory() {
 
     //ui->label_nameAccount->setText(this->list[this->index].getName());
-    ui->label_totalCount->setText(QString::number(this->list[this->index].getTotalCount(), 'f', 1));
+    ui->label_totalCount->setText(QString::number(this->list[getIndex()].getTotalCount(), 'f', 1));
 
-    for (int j = 0; j < this->list[this->index].getTransactions().size(); j++) {
-        Transaction tr = this->list[this->index].getTransactions()[j];
+    for (int j = 0; j < this->list[getIndex()].getTransactions().size(); j++) {
+        Transaction tr = this->list[getIndex()].getTransactions()[j];
 
         if(tr.getSum() > 0)ui->listWidget->addItem(tr.getName() + "  :  +" + QString::number(tr.getSum()));
         else ui->listWidget->addItem(tr.getName() + "  :  " + QString::number(tr.getSum()));
@@ -62,21 +59,17 @@ void FinAccountWindow::on_pushButton_back_clicked()
   emit signalBack();
 }
 
-void FinAccountWindow::setIndex(int i){
+void FinAccountWindow::setIndexToOpen(int i){
     ui->listWidget->clear();
-    this->index = i;
-    if (this->index != 0) qDebug() << "index marker !!!";
+    setIndex(i);
+    //if (getIndex() != 0) qDebug() << "index marker !!!";
 
 
 }
 void FinAccountWindow::receiveFinanceAccountList(QVector<FinanceAccount> &list)
 {
     //ui->label_nameAccount->setText(list[this->index].getName());
-    ui->label_totalCount->setText( QString::number ( list[this->index].getTotalCount(), 'f', 1));
-
-
-
-
+    ui->label_totalCount->setText( QString::number ( list[getIndex()].getTotalCount(), 'f', 1));
 }
 
 void FinAccountWindow::on_pushButton_clicked()
@@ -89,7 +82,7 @@ void FinAccountWindow::on_pushButton_clicked()
   ui->lineEdit_nameTransaction->setPlaceholderText("Назва (не обов'язково)");
   ui->lineEdit_sumTransaction ->setPlaceholderText("Сума транзакції");
 
-  statusGroupBox = 1;
+  setStatusGroupBox(1);
 }
 
 void FinAccountWindow::on_pushButton_2_clicked()
@@ -103,53 +96,52 @@ void FinAccountWindow::on_pushButton_2_clicked()
   ui->lineEdit_nameTransaction->setPlaceholderText("Назва");
   ui->lineEdit_sumTransaction ->setPlaceholderText("Цільова сума");
 
-  statusGroupBox = 2;
+   setStatusGroupBox(2);
 
 }
 
 
 void FinAccountWindow::on_pushButton_saveTransaction_clicked()
 {
-  if(statusGroupBox == 1){
+   if(getStatusGroupBox() == 1){
         float check = ui->lineEdit_sumTransaction->text().toFloat();
 
         if(check!= 0){
             Transaction newTr = Transaction(ui->lineEdit_nameTransaction->text(), ui->lineEdit_sumTransaction->text().toFloat());
-            this->list[this->index].addTransaction(newTr);
+            this->list[getIndex()].addTransaction(newTr);
 
-            this->list[this->index].setTotalCount(newTr.getSum());
+            this->list[getIndex()].setTotalCount(newTr.getSum());
 
             if(newTr.getSum()> 0)ui->listWidget->addItem(newTr.getName() + "  :  +" + QString::number(newTr.getSum()));
             else ui->listWidget->addItem(newTr.getName() + "  :  " + QString::number(newTr.getSum()));
-            ui->label_totalCount->setText(QString::number(this->list[this->index].getTotalCount(), 'f', 1));
-            emit sendAccData(this->list);
+            ui->label_totalCount->setText(QString::number(this->list[getIndex()].getTotalCount(), 'f', 1));
 
             ui->groupBox_newTransaction->hide();
             ui->lineEdit_nameTransaction->setText("");
             ui->lineEdit_sumTransaction->setText("");
 
             ui->label_statusTransaction->setText("");
-            statusGroupBox = 0;
+              setStatusGroupBox(0);
 
             updateGoal();
         }else
             ui->label_statusTransaction->setText("Дані введено не коректно!");
-  }if(statusGroupBox == 2){
+  }if(getStatusGroupBox() == 2){
         float check = ui->lineEdit_sumTransaction->text().toFloat();
 
         if(check!= 0 && !ui->lineEdit_nameTransaction->text().isEmpty()){
-            list[index].setGoal(ui->lineEdit_nameTransaction->text(), ui->lineEdit_sumTransaction->text().toFloat(), list[index].getTotalCount());
+            list[getIndex()].setGoal(ui->lineEdit_nameTransaction->text(), ui->lineEdit_sumTransaction->text().toFloat(), list[getIndex()].getTotalCount());
 
-            ui->label_nameGoal->setText(list[index].getGoal().getName());
-            ui->label_sumGoal->setText(QString::number(list[index].getGoal().getSum()));
-            ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
+            ui->label_nameGoal->setText(list[getIndex()].getGoal().getName());
+            ui->label_sumGoal->setText(QString::number(list[getIndex()].getGoal().getSum()));
+            ui->label_progressGoal->setText(QString::number(list[getIndex()].getGoal().getProgress(), 'f', 2) + "%");
 
             ui->groupBox_newTransaction->hide();
             ui->lineEdit_nameTransaction->setText("");
             ui->lineEdit_sumTransaction->setText("");
 
             ui->label_statusTransaction->setText("");
-            statusGroupBox = 0;
+              setStatusGroupBox(0);
 
         }else
             ui->label_statusTransaction->setText("Дані введено не коректно!");
@@ -160,11 +152,19 @@ void FinAccountWindow::on_pushButton_saveTransaction_clicked()
 
 
 void FinAccountWindow::updateGoal(){
-    if(list[index].getGoal().getSum() != 0){
-        list[index].setGoalProgress(list[index].getTotalCount());
-        ui->label_progressGoal->setText(QString::number(list[index].getGoal().getProgress(), 'f', 2) + "%");
+    if(list[getIndex()].getGoal().getSum() != 0){
+        list[getIndex()].setGoalProgress(list[getIndex()].getTotalCount());
+        ui->label_progressGoal->setText(QString::number(list[getIndex()].getGoal().getProgress(), 'f', 2) + "%");
 
     }
 }
 
+
+void FinAccountWindow::on_pushButton_deleteAccount_clicked()
+{
+    list.remove(getIndex());
+    on_pushButton_back_clicked();
+      emit deleteAccountGet(getIndex());
+
+}
 

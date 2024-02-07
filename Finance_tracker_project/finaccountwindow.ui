@@ -75,9 +75,9 @@
    <widget class="QPushButton" name="pushButton_back">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>170</x>
       <y>360</y>
-      <width>371</width>
+      <width>231</width>
       <height>41</height>
      </rect>
     </property>
@@ -263,6 +263,22 @@
       <string/>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_deleteAccount">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>360</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Видалити рахунок</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
